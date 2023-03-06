@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>index.knit</title>
+
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
+<link href="site_libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+<script src="site_libs/vis-9.1.0/vis-network.min.js"></script>
+<script src="site_libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<!DOCTYPE html>
+<title>Sean Prall</title>
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <!-- NOTE: add "navbar-inverse" class for an alternate navbar background -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Sean Prall</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="pubs/Prall_CV.pdf">CV</a></li>
+        <li><a href="https://www.researchgate.net/profile/Sean_Prall">ResearchGate</a></li>
+        <li><a href="https://scholar.google.com/citations?user=OwgQ0qQAAAAJ">GoogleScholar</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p><img src="photos/walk2.jpg" width="110%" /></p>
+<div id="sean-prall" class="section level3">
+<h3>Sean Prall</h3>
+<p><a href="https://anthropology.missouri.edu">Assistant Professor</a><br />
+<a href="https://anthropology.missouri.edu">Department of Anthropology</a><br />
+<a href="https://anthropology.missouri.edu">University of Missouri</a></p>
+<p>I am an Assistant Professor and evolutionary anthropologist at the University of Missouri with interests in human health and reproduction, reproductive decision making, and evolutionary ecology. In particular I examine costs and trade-offs associated with investments in reproduction. I do this with a combination of quantitative and qualitative methods, including anthropometrics, demography, endocrinology, actigraphy, validated health surveys, dyadic peer ratings, alongside semi-structured demographic interviews and measures of social norms. My work is informed by a mix of evolutionary and behavioral ecology, cultural evolutionary theory, and evolutionary psychology, especially they relate to reproductive concerns. I am also a co-director of the <a href="http://krhdp.weebly.com">Kunene Rural Health and Demography Project</a>, a contributor to the <a href="https://endowproject.github.io">ENDOW project</a>, and a collaborator on the <a href="https://kathrinestarkweather.com/research-1">Shodagor Longitudinal Health and Demography Project</a>.</p>
+</div>
+<div id="publications" class="section level3">
+<h3>Publications</h3>
+<ul>
+<li><p>Scelza BA, <strong>Prall SP</strong>. 2023. <a href="https://link.springer.com/article/10.1007/s10508-023-02553-2">Only death will separate us: the role of extramarital partnerships among Himba pastoralists</a>. <em>Archives of Sexual Behavior</em>. <a href="pubs/Scelza%20and%20Prall%202023%20ASB.pdf">pdf</a> | <a href="pubs/Scelza%20and%20Prall%202023%20ASB%20SI.pdf">SI</a> | <a href="https://osf.io/4q3ne/">data and code</a></p></li>
+<li><p>Swinford NA, Gallagher B, Sheehama J, Lin M, <strong>Prall SP</strong>, Scelza BA, Henn BM. 2023. <a href="https://onlinelibrary.wiley.com/doi/10.1002/ajpa.24660">Examination of runs of homozygosity in relation to height in an endogamous Namibian Population</a>. <em>American Journal of Biological Anthropology</em> 180(1): 207-215. <a href="pubs/Swinford%20et%20al%202022.pdf">pdf</a> | <a href="https://github.com/hennlab/HimbaHeight">data and code</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2023. <a href="https://onlinelibrary.wiley.com/doi/10.1002/ajhb.23803">The dietary impacts of drought in a traditional pastoralist economy</a>. <em>American Journal of Human Biology</em> 35(1): e23803. <a href="pubs/Prall%20and%20Scelza%202022%20AJHB.pdf">pdf</a></p></li>
+<li><p>Swinford NA, <strong>Prall SP</strong>, Williams CM, Sheehama J, Scelza BA, Henn BM. preprint 2022. <a href="https://www.biorxiv.org/content/10.1101/2022.07.25.501261v1.article-info">Increased homozygosity due to endogamy results in fitness consequences in a human population</a>. <em>bioRxiv</em> 2022.07.25.501261.</p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2022. <a href="https://www.science.org/doi/10.1126/sciadv.abm5629">The effect of mating market dynamics on partner preference and relationship quality among Himba pastoralists</a>. <em>Science Advances</em> 8(18):eabm5629. <a href="pubs/Prall%20and%20Scelza%202022%20Sci%20Adv.pdf">pdf</a> | <a href="pubs/Prall%20and%20Scelza%202022%20Sci%20Adv%20SI.pdf">SI</a> | <a href="https://osf.io/6wm3g/">code</a> | <a href="https://showme.missouri.edu/2022/relationships-are-best-between-people-of-similar-desirability-study-finds/">MU Press Release</a></p></li>
+<li><p>Starkweather KE, Keith MH, <strong>Prall SP</strong>, Alam N, tuz Zohora F, Thompson ME. 2021. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/dev.22148">Are fathers a good substitute for mothers? Paternal care and growth rates in Shodagor children</a>. <em>Developmental Psychobiology</em> 63(6): e22148. <a href="pubs/Starkweather%20et%20al%202021.pdf">pdf</a> | <a href="pubs/Starkweather%20et%20al%202021%20SI.pdf">SI</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Starkweather KE. 2021. <a href="https://www.mdpi.com/2076-0760/10/5/174">The role of spousal separation on norms related to gender and sexuality among Himba pastoralists</a>. <em>Social Sciences</em> 10(5):174. <a href="pubs/Scelza%20et%20al%202021.pdf">pdf</a> | <a href="pubs/Scelza%20et%20al%202021%20SI.pdf">SI</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2020. <a href="https://www.cambridge.org/core/journals/evolutionary-human-sciences/article/resource-demands-reduce-partner-discrimination-in-himba-women/E150ED1F386DA7FB8197FBAD4F212615">Resource demands reduce partner discrimination in Himba women</a>. <em>Evolutionary Human Sciences</em> 2:E45. <a href="pubs/Prall%20and%20Scelza%202020%20EHS.pdf">pdf</a> | <a href="pubs/Prall%20and%20Scelza%202020%20EHS%20SI.pdf">SI</a></p></li>
+<li><p>Broesch T, Crittenden AN, Beheim BA, Blackwell AD, Bunce JA, Colleran H, Hagel K, Kline M, McElreath R, Nelson RG, Pisor AC, <strong>Prall SP</strong>, Pretelli I, Purzycki B, Quinn EA, Ross C, Scelza B, Starkweather K, Stieglitz J, Borgerhoff-Mulder M. 2020. <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2020.1245">Navigating cross-cultural research: methodological and ethical considerations</a>. <em>Proceedings of the Royal Society B</em> 287:20201245. <a href="pubs/Broesch%20et%20al%202020.pdf">pdf</a> | <a href="https://www.eurekalert.org/pub_releases/2020-09/uonl-eci092220.php">AAAS Press Release</a></p></li>
+<li><p>Scelza BA, Atkinson E, <strong>Prall SP</strong>, McElreath R, Sheehama J, Henn BM. 2020. <a href="https://doi.org/10.1017/ehs.2020.23">The ethics and logistics of field-based paternity studies</a>. <em>Evolutionary Human Sciences</em> 2:E22 1-19. <a href="pubs/Scelza%20et%20al%202020%20ehs.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2020. <a href="https://royalsocietypublishing.org/doi/10.1098/rspb.2019.2890">Why men invest in non-biological offspring: paternal care and paternity confidence among Himba pastoralists</a>. <em>Proceedings of the Royal Society B</em> 287:20192890. <a href="pubs/Prall%20and%20Scelza%202020.pdf">pdf</a> | <a href="https://osf.io/bjkn8">data and code</a> | <a href="pubs/Prall%20and%20Scelza%202020%20SI.pdf">SI</a> | <a href="https://theconversation.com/the-deep-evolutionary-links-between-monogamy-and-fatherhood-are-more-complicated-than-we-thought-132660">Conversation Piece</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Swinford N, Gopalan S, Atkinson E, McElreath R, Sheehama J, Henn BM. 2020. <a href="https://advances.sciencemag.org/content/6/8/eaay6195">High rate of extra-pair paternity in a human population demonstrates diversity in human reproductive strategies</a>. <em>Science Advances</em> 6(8): eaa6195. <a href="pubs/Scelza%20et%20al%202020%20sci%20adv.pdf">pdf</a> | <a href="https://github.com/rmcelreath/Himba_EPP">code</a> | <a href="pubs/Scelza%20et%20al%202020%20sci%20adv%20SI.pdf">SI</a> | <a href="https://newsroom.ucla.edu/releases/African-society-human-paternity-infidelity">UCLA Press Release</a> | <a href="https://theconversation.com/the-deep-evolutionary-links-between-monogamy-and-fatherhood-are-more-complicated-than-we-thought-132660">Conversation Piece</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Starkweather K. 2020. <a href="https://www.sciencedirect.com/science/article/abs/pii/S1090513819301928">Paternity and social obligations explain men’s allocations to romantic partners in an experimental giving game</a>. <em>Evolution and Human Behavior</em> 41: 96-102. <a href="pubs/Scelza%20et%20al%202020%20ehb.pdf">pdf</a> | <a href="https://osf.io/8bp5z/">data and code</a> | <a href="pubs/Scelza%20et%20al%202020%20ehb%20SI.pdf">SI</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Blumenfeld T, Crittenden AN, Gurven M, Kline M, Koster J, Kuschnik G, Mattison SM, Pillsworth E, Shenk MK, Starkweather K, Stieglitz J, Sum CY, Yamaguchi K, McElreath R. 2020. <a href="https://www.nature.com/articles/s41562-019-0654-y">Patterns of paternal investment predict cross-cultural variation in jealous response</a>. <em>Nature Human Behaviour</em> 4: 20-26. <a href="pubs/Scelza%20et%20al%202019%20Jealousy.pdf">pdf</a> | <a href="https://osf.io/x593j/">data and code</a> | <a href="pubs/Scelza%20et%20al%202019%20Jealousy%20SI.pdf">SI</a> | <a href="http://newsroom.ucla.edu/releases/new-study-led-by-ucla-anthropologist-suggests-that-in-societies-where-dads-are-more-involved-with-their-kids-responses-to-infidelity-are-more-severe">UCLA Press Release</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Levine N. 2019. <a href="https://royalsocietypublishing.org/doi/full/10.1098/rstb.2018.0072">The disequilibrium of double descent: changing inheritance norms among Himba pastoralists</a>. <em>Philosophical Transactions of the Royal Society B</em> 374:20180072. <a href="pubs/Scelza%20et%20al%202019%20matriliny.pdf">pdf</a> | <a href="https://osf.io/z4eb2/">data and code</a> | <a href="pubs/Scelza%20et%20al%202019%20matriliny%20SI.pdf">SI</a></p></li>
+<li><p><strong>Prall SP</strong>, Yetish G, Scelza BA, Siegel JM. 2018. <a href="https://www.sleephealthjournal.org/article/S2352-7218(18)30179-7/abstract">The influence of age and sex specific labor demands on sleep in Namibian agro-pastoralists</a>. <em>Sleep Health</em> 4(6): 500-508. <a href="pubs/Prall%20et%20al%20sleep%20health.pdf">pdf</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>. 2018. <a href="https://www.sciencedirect.com/science/article/pii/S1090513817301186">Partner preferences in the context of concurrency: what Himba want in formal and informal partners</a>. <em>Evolution and Human Behavior</em> 39:212-219. <a href="pubs/Scelza%20and%20Prall%202018.pdf">pdf</a> | <a href="https://data.mendeley.com/datasets/sstyj8n5ks/1">data and code</a> | <a href="pubs/Scelza%20and%20Prall%202018%20SI.pdf">SI</a></p></li>
+<li><p>Longman D, <strong>Prall SP</strong>, Shattuck EC, Stephen ID, Stock JT, Wells JCK, Muehlenbein MP. 2018. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ajhb.23052">Short-term resource allocation during extensive athletic competition</a>. <em>American Journal of Human Biology</em> 30: e23052. <a href="pubs/Longman%20et%20al%202017.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. 2018. <a href="https://www.sciencedirect.com/science/article/pii/S0083672918300347">DHEA modulates immune function: a review of the evidence</a>. In: G Litwack (ed), <em>Dehydroepiandrosterone</em>. Elsevier Press. <a href="pubs/Prall%20and%20Muehlenbein%20ch%202018.pdf">pdf</a></p></li>
+<li><p>Tieder JS, <strong>Prall SP</strong>, Beck J, Alberda E, Jensen D, Nair D, Carline JD. 2017. <a href="https://hosppeds.aappublications.org/content/7/11/642.figures-only">A survey of perceived effectiveness of Part 4 Maintenance of Certification</a>. <em>Hospital Pediatrics</em>, 7(11): 642-648.</p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2017. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ajhb.23058">Child fosterage and sex-biased nutritional outcomes among Namibian Pastoralists</a>. <em>American Journal of Human Biology</em> 29(6): e23058. <a href="pubs/Prall%20and%20Scelza%202017.pdf">pdf</a> | <a href="pubs/Prall%20and%20Scelza%202017%20SI.pdf">SI</a></p></li>
+<li><p>Hodges-Simeon CR, <strong>Prall SP</strong>, Blackwell A, Gurven M, Gaulin SJC. 2017. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ajhb.23025">Adrenal maturation, nutritional status and mucosal immunity in Bolivian youth</a>. <em>American Journal of Human Biology</em> 29(5): e23025. <a href="pubs/Hodges-Simeon%20et%20al%202017.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Larson EE, Muehlenbein MP. 2017. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/smi.2752">The role of dehydroepiandrosterone on functional innate immune responses to acute stress</a>. <em>Stress and Health</em> 33:656-664. <a href="pubs/Prall%20et%20al%20stress%20and%20health.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. 2017. Hormonal correlates of dominance. In: A Fuentes (ed), <em>International Encyclopedia of Primatology</em>, Wiley-Blackwell. <a href="pubs/Prall%20Muehlenbein%20Encyclopedia%20entry.pdf">pdf</a></p></li>
+<li><p>Muehlenbein MP, <strong>Prall SP</strong>, Peck HN. 2017. Immunity, hormones and life history trade-offs. In: Jasienska G, Sherry DS, Holmes DJ (eds). <em>The Arc of Life: Evolution and health over the life course</em>. Springer Press, p. 99-120. <a href="pubs/Muehlenbein%20et%20al%202017.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. <a href="https://onlinelibrary.wiley.com/doi/10.1002/ajhb.22724">Dehydroepiandrosterone and multiple measures of functional immunity in young adults</a>. 2015. <em>American Journal of Human Biology</em> 27(6):877-880. <a href="pubs/Prall%20and%20Muehlenbein%202015.pdf">pdf</a></p></li>
+<li><p>Georgiev AV, Muehlenbein M, <strong>Prall SP</strong>, Emery-Thompson M, Maestripieri D. 2015. <a href="https://academic.oup.com/beheco/article/26/3/763/234197">Male quality, dominance rank and mating success in free-ranging rhesus macaques</a>. <em>Behavioral Ecology</em> 26(3):763-772. <a href="pubs/Georgiev%20et%20al.%202015.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Ambu L, Nathan S, Alsisto S, Ramirez D, Muehlenbein MP. 2015. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ajp.22387">Androgens and innate immunity in rehabilitated semi-captive Orangutans (Pongo pygmaeus morio)</a>. <em>American Journal of Primatology</em> 77(6):642-650. <a href="pubs/Prall%20et%20al.%202015%20AJP.pdf">pdf</a></p></li>
+<li><p>Muehlenbein MP, Pacheco MA, Taylor JE, <strong>Prall SP</strong>, Ambu L, Nathan S, Alsisto S, Ramirez D, Escalante AA. 2015. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4298170/">Accelerated diversification of non-human primate malarias in Southeast Asia: adaptive radiation or geographic speciation?</a> <em>Molecular Biology and Evolution</em> 32(2):422-439. <a href="pubs/Muehlenbein%20et%20al.%202015.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. 2014. <a href="https://link.springer.com/article/10.1007/s10764-014-9752-x">Testosterone and immune function in primates: A brief summary with methodological considerations</a>. <em>International Journal of Primatology</em> 35(3-4): 805-824. <a href="pubs/Prall%20and%20Muehlenbein%202014%20IJP.pdf">pdf</a></p></li>
+<li><p>Muehlenbein MP, Ancrenaz M, Sakong R, Ambu L, <strong>Prall SP</strong>, Fuller G, Raghanti MA. 2012. <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0033357">Ape conservation physiology: Fecal glucocorticoid responses in wild Pongo pygmaeus morio following human visitation</a>. <em>PLoS ONE</em> 7(3): e33357. <a href="pubs/Muehlenbein%20et%20al.%202012.pdf">pdf</a></p></li>
+<li><p>Streeter M, <strong>Prall SP</strong>, Hill C. 2008. Paleohistological Study of Pleistocene Mammoth (<em>Mammuthus</em>) Bone. <em>Current Research in the Pleistocene</em> 25:189-191.</p></li>
+</ul>
+</div>
+<div id="co-author-network" class="section level3">
+<h3>Co-author Network</h3>
+<p>Visual network of co-authors and co-authored papers (inspired by <a href="https://eapower.github.io">Elly Power</a>).</p>
+<div class="visNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-025d46da8db6709ef079" style="width:576px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-025d46da8db6709ef079">{"x":{"nodes":{"Name":["Paleohistological Study of Pleistocene Mammoth (Mammuthus) Bone","Ape conservation physiology: Fecal glucocorticoid responses in wild Pongo pygmaeus morio following human visitation","Testosterone and immune function in primates: A brief summary with methodological considerations","Accelerated diversification of non-human primate malarias in Southeast Asia: adaptive radiation or geographic speciation?","Androgens and innate immunity in rehabilitated semi-captive Orangutans (Pongo pygmaeus morio)","Male quality, dominance rank and mating success in free-ranging rhesus macaques","Dehydroepiandrosterone and multiple measures of functional immunity in young adults","The role of dehydroepiandrosterone on functional innate immune responses to acute stress","Adrenal maturation, nutritional status and mucosal immunity in Bolivian youth","Child fosterage and sex-biased nutritional outcomes among Namibian Pastoralists","A survey of perceived effectiveness of Part 4 Maintenance of Certification","Immunity, hormones and life history trade-offs","Hormonal correlates of dominance","DHEA modulates immune function: a review of the evidence","Short-term resource allocation during extensive athletic competition","Partner preferences in the context of concurrency: what Himba want in formal and informal partners","The influence of age and sex specific labor demands on sleep in Namibian agro-pastoralists","The disequilibrium of double descent: changing inheritance norms among Himba pastoralists","Patterns of paternal investment predict cross-cultural variation in jealous response","Paternity and social obligations explain men's allocations to romantic partners in an experimental giving game","High rate of extra-pair paternity in a human population demonstrates diversity in human reproductive strategies","Why men invest in non-biological offspring: Paternal care and paternity confidence among Himba pastoralists","The ethics and logistics of field-based paternity studies","Navigating cross-cultural research: methodological and ethical considerations","Resource demands reduce partner discrimination in Himba women","Paternal care and growth rates in Shodagor children","The role of spousal separation on norms related to gender and sexuality among Himba pastoralists","The effect of mating market dynamics on partner preference and relationship quality among Himba pastoralists","Increased homozygosity due to endogamy results in fitness consequences in a human population","The dietary impacts of drought in a traditional pastoralist economy","Examination of runs of homozygosity in relation to height in an endogamous Namibian population","Only death will separate us: the role of extramarital partnerships when concurrecy I common","Margaret Streeter","Michael Muehlenbein","Alex Georgiev","Carolyn Hodges-Simeon","Joel Tieder","Daniel Longman","Brooke Scelza","Tanya Broesch","Kathrine Starkweather","Natalie Swinford","Marc Ancrenaz","Andreina Pacheco","Laurentius Ambu","Emilee Larson","Gandhi Yetish","Elizabeth Atkinson","Alyssa Crittenden","Monica Keith","Brenna Gallagher","Chris Hill","Rosman Sakong","Jessee Taylor","Sylvia Alsisto","Aaron Blackwell","Jimmy Beck","Hidemi Peck","Eric Shattuck","Nancy Levine","Tami Blumenfield","Bret Beheim","Cole Williams","Jacob Sheehama","Diana Ramirez","Melissa Emery Thompson","Michael Gurven","Erin Alberda","Ian Stephen","Jerome Siegel","Shamie Gopalan","Richard McElreath","Nurul Alam","Meng Lin","Dario Maestripieri","Steven Gaulin","Debra Jensen","Jay Stock","John Bunce","Fatema tuz Zohora","Grace Fuller","Senthilven Nathan","Depthi Nair","Jonathan Wells","Michelle Kline","Brenna Henn","Heidi Colleran","Mary Ann Raghanti","Jan Carline","Jeremy Koster","Kristen Hagel","Geoff Kushnick","Ananias Escalante","Siobhan Mattison","Elizabeth Pillsworth","Robin Nelson","Mary Shenk","Anne Pisor","Jonathan Stieglitz","Illaria Pretelli","Chu-Yi Sum","Benjamin Purzycki","Kyoko Yamaguhi","Elizabeth Quinn","Cody Ross","Monique Borgerhoff Mulder"],"Label":["Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Paper","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person","Person"],"ID":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106],"id":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106],"shape":["square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","square","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot","dot"],"shadow":[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],"title":["Paleohistological Study of Pleistocene Mammoth (Mammuthus) Bone","Ape conservation physiology: Fecal glucocorticoid responses in wild Pongo pygmaeus morio following human visitation","Testosterone and immune function in primates: A brief summary with methodological considerations","Accelerated diversification of non-human primate malarias in Southeast Asia: adaptive radiation or geographic speciation?","Androgens and innate immunity in rehabilitated semi-captive Orangutans (Pongo pygmaeus morio)","Male quality, dominance rank and mating success in free-ranging rhesus macaques","Dehydroepiandrosterone and multiple measures of functional immunity in young adults","The role of dehydroepiandrosterone on functional innate immune responses to acute stress","Adrenal maturation, nutritional status and mucosal immunity in Bolivian youth","Child fosterage and sex-biased nutritional outcomes among Namibian Pastoralists","A survey of perceived effectiveness of Part 4 Maintenance of Certification","Immunity, hormones and life history trade-offs","Hormonal correlates of dominance","DHEA modulates immune function: a review of the evidence","Short-term resource allocation during extensive athletic competition","Partner preferences in the context of concurrency: what Himba want in formal and informal partners","The influence of age and sex specific labor demands on sleep in Namibian agro-pastoralists","The disequilibrium of double descent: changing inheritance norms among Himba pastoralists","Patterns of paternal investment predict cross-cultural variation in jealous response","Paternity and social obligations explain men's allocations to romantic partners in an experimental giving game","High rate of extra-pair paternity in a human population demonstrates diversity in human reproductive strategies","Why men invest in non-biological offspring: Paternal care and paternity confidence among Himba pastoralists","The ethics and logistics of field-based paternity studies","Navigating cross-cultural research: methodological and ethical considerations","Resource demands reduce partner discrimination in Himba women","Paternal care and growth rates in Shodagor children","The role of spousal separation on norms related to gender and sexuality among Himba pastoralists","The effect of mating market dynamics on partner preference and relationship quality among Himba pastoralists","Increased homozygosity due to endogamy results in fitness consequences in a human population","The dietary impacts of drought in a traditional pastoralist economy","Examination of runs of homozygosity in relation to height in an endogamous Namibian population","Only death will separate us: the role of extramarital partnerships when concurrecy I common","Margaret Streeter","Michael Muehlenbein","Alex Georgiev","Carolyn Hodges-Simeon","Joel Tieder","Daniel Longman","Brooke Scelza","Tanya Broesch","Kathrine Starkweather","Natalie Swinford","Marc Ancrenaz","Andreina Pacheco","Laurentius Ambu","Emilee Larson","Gandhi Yetish","Elizabeth Atkinson","Alyssa Crittenden","Monica Keith","Brenna Gallagher","Chris Hill","Rosman Sakong","Jessee Taylor","Sylvia Alsisto","Aaron Blackwell","Jimmy Beck","Hidemi Peck","Eric Shattuck","Nancy Levine","Tami Blumenfield","Bret Beheim","Cole Williams","Jacob Sheehama","Diana Ramirez","Melissa Emery Thompson","Michael Gurven","Erin Alberda","Ian Stephen","Jerome Siegel","Shamie Gopalan","Richard McElreath","Nurul Alam","Meng Lin","Dario Maestripieri","Steven Gaulin","Debra Jensen","Jay Stock","John Bunce","Fatema tuz Zohora","Grace Fuller","Senthilven Nathan","Depthi Nair","Jonathan Wells","Michelle Kline","Brenna Henn","Heidi Colleran","Mary Ann Raghanti","Jan Carline","Jeremy Koster","Kristen Hagel","Geoff Kushnick","Ananias Escalante","Siobhan Mattison","Elizabeth Pillsworth","Robin Nelson","Mary Shenk","Anne Pisor","Jonathan Stieglitz","Illaria Pretelli","Chu-Yi Sum","Benjamin Purzycki","Kyoko Yamaguhi","Elizabeth Quinn","Cody Ross","Monique Borgerhoff Mulder"],"borderWidth":[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],"color.background":["slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","slategrey","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato","tomato"],"color.border":["black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black"],"color.highlight.background":["black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black"],"color.highlight.border":["black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black","black"]},"edges":{"Paper":[1,2,3,4,6,9,11,12,15,16,18,19,20,21,23,24,26,27,29,31,32,2,4,5,6,7,8,10,13,14,17,22,23,24,25,26,28,30,31,1,2,4,5,8,9,11,12,15,17,18,19,20,21,24,27,29,31,2,5,6,9,11,15,17,19,21,23,24,26,29,31,4,5,6,9,11,15,19,21,23,24,26,29,2,4,11,15,19,21,23,24,26,29,31,2,4,11,15,19,21,24,31,4,19,21,24,4,19,24,19,24,19,24,19,19,24,19,24,19,24,19,24,24,24,24,24],"Person":[33,34,34,34,35,36,37,34,38,39,39,39,39,39,39,40,41,39,42,42,39,43,44,45,34,34,46,39,34,34,47,39,48,49,39,50,39,39,51,52,53,54,55,34,56,57,58,59,39,60,61,41,42,62,41,63,64,45,65,66,67,68,69,70,49,71,72,56,73,64,74,45,34,75,76,77,78,67,48,64,79,80,39,81,82,83,84,85,72,86,87,66,86,39,88,55,89,34,90,64,91,86,65,92,86,85,93,94,72,95,96,97,98,41,99,100,101,102,103,104,72,105,39,41,99,106],"from":[33,34,34,34,35,36,37,34,38,39,39,39,39,39,39,40,41,39,42,42,39,43,44,45,34,34,46,39,34,34,47,39,48,49,39,50,39,39,51,52,53,54,55,34,56,57,58,59,39,60,61,41,42,62,41,63,64,45,65,66,67,68,69,70,49,71,72,56,73,64,74,45,34,75,76,77,78,67,48,64,79,80,39,81,82,83,84,85,72,86,87,66,86,39,88,55,89,34,90,64,91,86,65,92,86,85,93,94,72,95,96,97,98,41,99,100,101,102,103,104,72,105,39,41,99,106],"to":[1,2,3,4,6,9,11,12,15,16,18,19,20,21,23,24,26,27,29,31,32,2,4,5,6,7,8,10,13,14,17,22,23,24,25,26,28,30,31,1,2,4,5,8,9,11,12,15,17,18,19,20,21,24,27,29,31,2,5,6,9,11,15,17,19,21,23,24,26,29,31,4,5,6,9,11,15,19,21,23,24,26,29,2,4,11,15,19,21,23,24,26,29,31,2,4,11,15,19,21,24,31,4,19,21,24,4,19,24,19,24,19,24,19,19,24,19,24,19,24,19,24,24,24,24,24]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false}},"groups":null,"width":null,"height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="courses-taught-at-mizzou" class="section level3">
+<h3>Courses taught at Mizzou</h3>
+<ul>
+<li><strong>Anthro 1000 - <a href="pubs/Prall_Anthro1000.pdf">Introduction to anthropology: biology, prehistory, and culture</a></strong> - Anthropology is the study of humanity. As such, anthropology seeks to understand where humans come from and how they have evolved, how societies and cultures develop and change over time, and to understand modern cultural and behavioral diversity. Because of this broad approach, anthropology is inherently an interdisciplinary field, drawing from social and natural sciences, history, and linguistics. By combining these perspectives, with an emphasis on diversity and cultural variation, anthropology helps us understand how people live, adapt, and shape the world around them. <a href="pubs/Prall_Anthro1000.pdf">syllabus</a></li>
+<li><strong>Anthro 1560 - <a href="pubs/Prall_outbreaks_syllabus.pdf">Outbreaks and the anthropology of emerging disease</a></strong> - Human-environment interactions, and biocultural responses to illness profoundly impact the ways in which diseases evolve, emerge, and spread. Similarly, cultural responses to disease processes can have profound impacts on the evolution of cultural traits. This course will explore the role of humans and cultural variation in emerging infectious diseases and disease outbreaks by focusing on the origins, emergence, spread, and response to Ebola, Rabies, HIV, COVID-19 and others. Additionally this course will explore the cultural evolution of resistance to treatment of infectious disease, including vaccine hesitancy in industrialized and developing countries, as well as stigma, misinformation, and distrust that often accompanies disease outbreaks. By focusing on the interplay between culture and ecology, this course will highlight the power of anthropological perspectives to understand human health in the context of contemporary infectious diseases. <a href="pubs/Prall_outbreaks_syllabus.pdf">syllabus</a></li>
+<li><strong>Anthro 2580 - <a href="pubs/Prall_sex_syllabus.pdf">Evolution of Human Sexuality</a></strong> - Sexual reproduction has been shaped by two billion years of evolution. In the human lineage, we carry biological and behavioral remnants of this evolution, but our own reproductive behaviors and decisions are also influenced by the cultural context. Ecology and social life shape variation in mating patterns cross-culturally, including sexual behavior, marriage, attraction, mate choice, jealousy, paternity, disease transmission, contraception, and interpretations of gender. By drawing from evolutionary history, non-human primates, small-scale societies, and industrialized nations, this course will critically evaluate understandings of human sexual behavior and reproduction from an evolutionary and anthropological perspective. <a href="pubs/Prall_sex_syllabus.pdf">syllabus</a></li>
+<li><strong>Anthro 4300/7300 - <a href="pubs/Prall_comp_social_org_syllabus.pdf">Comparative Social Organization</a></strong> - This course explores the variation in social organization as studied by anthropologists. As part of this course, students will explore topics including kinship, marriage, family, decent and residence patterns, social networks, inequality, and the evolutionary and ecological approaches to understanding these topics. In the first part of the course, we will explore important concepts of kinship, decent, and residence, and marriage. The second part of the course will survey major patterns of social organization from both regional, historical, and topical perspectives. As part of this course students will read and analyze ethnographic descriptions of various populations, watch documentaries, and engage in discussions of course topics. By the end of the course students will have an understanding of how gender and kinship shape social structures and institutions. <a href="pubs/Prall_comp_social_org_syllabus.pdf">syllabus</a></li>
+<li><strong>Anthro 4580/7580 - <a href="pubs/Prall_evmed_syllabus.pdf">Evolutionary Medicine</a></strong> - Evolutionary processes and human evolutionary history have profound implications in the way in which we respond and are susceptible to disease. Unlike many biomedical understandings of human health, evolution can better inform on the ultimate causes and consequences of topics such as infection and inflammation, allergy, parasites, diabetes and cardiovascular disease, aging, reproductive issues, and mental disorders. As part of this class, students will use evolution to critically evaluate human health, and explore how natural selection can shape behaviors and physiological responses. <a href="pubs/Prall_evmed_syllabus.pdf">syllabus</a></li>
+</ul>
+</div>
+
+&nbsp;
+<hr />
+<p style="text-align: center;"><a href="https://github.com/sprall/">Sean Prall</a></p>
+<p style="text-align: center;"><span style="color: #808080;"><em>sprall@missouri.edu</em></span></p>
+
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+    <a href="https://twitter.com/ssprall" class="fa fa-twitter"></a>  
+<!--    <a href="https://www.linkedin.com/in/yan-holtz-2477534a/" class="fa fa-linkedin"></a>  -->
+    <a href="https://github.com/sprall/" class="fa fa-github"></a>
+</p>
+
+&nbsp;
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

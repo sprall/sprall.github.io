@@ -1,0 +1,12 @@
+name: "Sean's Website"
+
+
+output:
+  html_document:
+    theme: united
+    highlight: textmate
+
+    includes:
+      after_body: footer.html
+      
+    css: styles.css
