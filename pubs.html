@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>pubs.knit</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<!DOCTYPE html>
+<title>Sean Prall</title>
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <!-- NOTE: add "navbar-inverse" class for an alternate navbar background -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Sean Prall</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="pubs.html">Publications</a></li>
+        <li><a href="students.html">Students</a></li>
+        <li><a href="pubs/Prall_CV.pdf">CV</a></li>
+        <li><a href="https://scholar.google.com/citations?user=OwgQ0qQAAAAJ">GoogleScholar</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p><img src="photos/cp2.jpg" width="110%" /></p>
+<div id="all-publications" class="section level3">
+<h3>All Publications</h3>
+<ul>
+<li><p>Meeks GL, Scelza BA, Asnake HM, <strong>Prall SP</strong>, Patin
+E, Froment A, Fagny M, Quintana-Murci L, Henn BM, Gopalan S. 2025. <a
+href="https://www.nature.com/articles/s42003-025-08893-0">Common DNA
+sequence variation influences epigenetic aging in African
+populations</a>. <em>Communications Biology</em> 8, 1530. <a
+href="pubs/Meeks%20et%20al%202025.pdf">pdf</a> | <a
+href="https://www.biorxiv.org/content/10.1101/2024.08.26.608843v1">preprint</a>
+| <a
+href="https://github.com/gillianmeeks/CommsBio_2025_Meeks_etal">data and
+code</a></p></li>
+<li><p>Meeks GL, Scelza B, Kichula KM, Berevoescu C, Hardy K, Farias
+TDJ, Harrison GF, Pollock NR, Font-Porterias N, <strong>Prall
+SP</strong>, Norman PJ, Henn BM. 2025. <a
+href="https://doi.org/10.1101/2025.05.06.652536">No evidence for
+disassortative mating based on HLA genotype in a natural fertility
+population</a>. <em>bioRxiv preprint</em>.</p></li>
+<li><p><strong>Prall SP</strong>, Lopes A. 2025. <a
+href="https://doi.org/10.1186/s12936-025-05382-x">Erema po otjindjumba?
+Highlighting cultural models and knowledge gaps of malaria in rural
+Namibian pastoralists</a>. <em>Malaria Journal</em> 24:143. <a
+href="pubs/Prall%20and%20Lopes%202025%20MJ.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA, Davis HE. 2025. <a
+href="https://doi.org/10.1007/s40615-025-02442-5">The Role of Medical
+Mistrust in Vaccination Decisions in Rural, Indigenous Namibian
+Communities</a>. <em>Journal of Racial and Ethnic Health
+Disparities</em>. <a
+href="pubs/Prall%20et%20al%202025%20JREHD.pdf">pdf</a> | <a
+href="pubs/Prall%20et%20al%20JREHD%20SI.pdf">SI</a> | <a
+href="https://osf.io/etys9/">data and code</a></p></li>
+<li><p><strong>Prall SP</strong>, Lopes A. 2025. <a
+href="https://doi.org/10.1016/j.vaccine.2025.127061">“Better to die
+trying”: Vaccine perceptions and COVID-19 experiences in rural Namibian
+pastoralists</a>. <em>Vaccine</em> 55(10): 127061. <a
+href="pubs/Prall%20and%20Lopes%202025.pdf">pdf</a> | <a
+href="pubs/Prall%20and%20Lopes%202025%20SI.pdf">SI</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA, Davis HE. 2024. <a
+href="https://doi.org/10.1016/j.socscimed.2024.117461">Context dependent
+preferences in prestige bias learning about vaccination in rural
+Namibian pastoralists</a>. <em>Social Science &amp; Medicine</em> 362:
+117461. <a href="pubs/Prall%20et%20al%202024%20SSM.pdf">pdf</a> | <a
+href="pubs/Prall%20et%20al%20SSM%20SI.pdf">SI</a> | <a
+href="https://osf.io/y49cj/">data and code</a></p></li>
+<li><p><strong>Prall SP</strong>. 2024. <a
+href="https://doi.org/10.1007/s44197-024-00319-0">Quantifiable
+cross-cultural research on medical mistrust is necessary for effective
+and equitable vaccination in low- and middle-income countries</a>.
+<em>Journal of Epidemiology and Global Health</em> 14:1771-1777. <a
+href="pubs/Prall%202024%20JEGH.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA, Davis HE. 2024. <a
+href="https://doi.org/10.1080/17441692.2024.2346207">Medical mistrust,
+discrimination, and healthcare experiences in a rural Namibian
+community</a>. <em>Global Public Health</em> 19(1): 2346207. <a
+href="pubs/Prall%20et%20al%202024%20GPH.pdf">pdf</a> | <a
+href="pubs/Prall%20et%20al%202024%20GPH%20SI.pdf">SI</a> | <a
+href="https://osf.io/ctrxv/">data and code</a></p></li>
+<li><p>Page AE, Ringen EJ, Koster J, Borgerhoff Mulder M, Kramer K,
+Shenk M, Steiglitz J, Starkweather K, Ziker J, Boyette A, Colleran H,
+Moya C, Du J, Mattison S, Greaves R, Sum C, Lui R, Lew-Levy S, Kiabiya
+Ntamboudila F, <strong>Prall S</strong>, Towner M, Blumfield T, Migliano
+AB, Major-Smith D, Dyble M, Salali GD, Chaudhary N, Derkx I, Ross C,
+Scelza B, Gurven M, Winterhalder B, Cortez C, Pacheco-Cobo L, Schacht R,
+Macfarlan SJ, Leonetti D, French JC, Alam N, tuz Zohora F, Sear R. 2024.
+<a href="https://doi.org/10.1073/pnas.2318181121">Women’s subsistence
+strategies predict fertility across cultures, but context matters</a>.
+<em>Proceedings of the National Academy of Sciences</em> 121(9):
+e2318181121. <a href="pubs/Page%20et%20al%202024.pdf">pdf</a> | <a
+href="pubs/Page%20et%20al%202024%20SI.pdf">SI</a> | <a
+href="https://osf.io/8d9n2/?view_only=9e07c25e06414f7a8d041e80e8539e5c">data
+and code</a> | <a
+href="https://www.brunel.ac.uk/news-and-events/news/articles/Are-farmers-always-more-fertile-than-foragers">Brunel
+Press Release</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2024. <a
+href="https://doi.org/10.1016/j.evolhumbehav.2023.10.002">The causes and
+consequences of women’s status in Himba pastoralists</a>. <em>Evolution
+&amp; Human Behavior</em> 45(1): 111-120. <a
+href="pubs/Prall%20and%20Scelza%20EHB.pdf">pdf</a> | <a
+href="https://osf.io/kaqzu/">data and code</a> | <a
+href="pubs/Prall%20and%20Scelza%202024%20reply.pdf">Durkee
+reply</a></p></li>
+<li><p>Walker RS, Flinn MV, <strong>Prall SP</strong>, Hamilton MJ.
+2023. <a
+href="https://www.nature.com/articles/s41598-023-50127-y#citeas">Remote
+sensing evidence for population growth of isolated indigenous societies
+in Amazonia</a>. <em>Scientific Reports</em> 13:22448. <a
+href="pubs/Walker%20et%20al%202023.pdf">pdf</a> | <a
+href="https://doi.org/10.21203/rs.3.rs-3018537/v1">preprint</a> | <a
+href="https://github.com/RobertSWalker/uncontacted">code</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA, Trumble B. 2023. <a
+href="https://link.springer.com/article/10.1007/s40750-023-00227-w">Stress
+and androgens in Himba women</a>. <em>Adaptive Human Behavior and
+Physiology</em> 9: 371-386. <a
+href="pubs/Prall%20et%20al%202023%20AHBP.pdf">pdf</a> | <a
+href="https://osf.io/p8b6u/">data and code</a></p></li>
+<li><p>Swinford NA, <strong>Prall SP</strong>, Gopalan S, Williams CM,
+Sheehama J, Scelza BA, Henn BM. 2023. <a
+href="https://doi.org/10.1073/pnas.2309552120">Increased homozygosity
+due to endogamy results in fitness consequences in a human
+population</a>. <em>Proceedings of the National Academy of Sciences</em>
+120(43) e2309552120. <a
+href="pubs/Swinford%20et%20al%202023%20PNAS.pdf">pdf</a> | <a
+href="https://www.biorxiv.org/content/10.1101/2022.07.25.501261v1.article-info">preprint</a>
+| <a href="pubs/Swinford%20et%20al%202023%20PNAS%20SI.pdf">SI</a> | <a
+href="https://github.com/hennlab/Himba_Fertility_Demography/tree/main">data
+and code</a> | <a
+href="https://lettersandscience.ucdavis.edu/news/study-reveals-how-genetic-uniformity-affects-offspring-fertility-generations">UC
+Davis Press Release</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>. 2023. <a
+href="https://link.springer.com/article/10.1007/s10508-023-02553-2">Only
+death will separate us: the role of extramarital partnerships among
+Himba pastoralists</a>. <em>Archives of Sexual Behavior</em> 52:
+1355-1363. <a href="pubs/Scelza%20and%20Prall%202023%20ASB.pdf">pdf</a>
+| <a href="pubs/Scelza%20and%20Prall%202023%20ASB%20SI.pdf">SI</a> | <a
+href="https://osf.io/4q3ne/">data and code</a></p></li>
+<li><p>Swinford NA, Gallagher B, Sheehama J, Lin M, <strong>Prall
+SP</strong>, Scelza BA, Henn BM. 2023. <a
+href="https://onlinelibrary.wiley.com/doi/10.1002/ajpa.24660">Examination
+of runs of homozygosity in relation to height in an endogamous Namibian
+Population</a>. <em>American Journal of Biological Anthropology</em>
+180(1): 207-215. <a href="pubs/Swinford%20et%20al%202022.pdf">pdf</a> |
+<a href="https://github.com/hennlab/HimbaHeight">data and
+code</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2023. <a
+href="https://onlinelibrary.wiley.com/doi/10.1002/ajhb.23803">The
+dietary impacts of drought in a traditional pastoralist economy</a>.
+<em>American Journal of Human Biology</em> 35(1): e23803. <a
+href="pubs/Prall%20and%20Scelza%202022%20AJHB.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2022. <a
+href="https://www.science.org/doi/10.1126/sciadv.abm5629">The effect of
+mating market dynamics on partner preference and relationship quality
+among Himba pastoralists</a>. <em>Science Advances</em> 8(18):eabm5629.
+<a href="pubs/Prall%20and%20Scelza%202022%20Sci%20Adv.pdf">pdf</a> | <a
+href="pubs/Prall%20and%20Scelza%202022%20Sci%20Adv%20SI.pdf">SI</a> | <a
+href="https://osf.io/6wm3g/">code</a> | <a
+href="https://showme.missouri.edu/2022/relationships-are-best-between-people-of-similar-desirability-study-finds/">MU
+Press Release</a></p></li>
+<li><p>Starkweather KE, Keith MH, <strong>Prall SP</strong>, Alam N, tuz
+Zohora F, Thompson ME. 2021. <a
+href="https://onlinelibrary.wiley.com/doi/full/10.1002/dev.22148">Are
+fathers a good substitute for mothers? Paternal care and growth rates in
+Shodagor children</a>. <em>Developmental Psychobiology</em> 63(6):
+e22148. <a href="pubs/Starkweather%20et%20al%202021.pdf">pdf</a> | <a
+href="pubs/Starkweather%20et%20al%202021%20SI.pdf">SI</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Starkweather KE. 2021. <a
+href="https://www.mdpi.com/2076-0760/10/5/174">The role of spousal
+separation on norms related to gender and sexuality among Himba
+pastoralists</a>. <em>Social Sciences</em> 10(5):174. <a
+href="pubs/Scelza%20et%20al%202021.pdf">pdf</a> | <a
+href="pubs/Scelza%20et%20al%202021%20SI.pdf">SI</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2020. <a
+href="https://www.cambridge.org/core/journals/evolutionary-human-sciences/article/resource-demands-reduce-partner-discrimination-in-himba-women/E150ED1F386DA7FB8197FBAD4F212615">Resource
+demands reduce partner discrimination in Himba women</a>.
+<em>Evolutionary Human Sciences</em> 2:E45. <a
+href="pubs/Prall%20and%20Scelza%202020%20EHS.pdf">pdf</a> | <a
+href="pubs/Prall%20and%20Scelza%202020%20EHS%20SI.pdf">SI</a></p></li>
+<li><p>Broesch T, Crittenden AN, Beheim BA, Blackwell AD, Bunce JA,
+Colleran H, Hagel K, Kline M, McElreath R, Nelson RG, Pisor AC,
+<strong>Prall SP</strong>, Pretelli I, Purzycki B, Quinn EA, Ross C,
+Scelza B, Starkweather K, Stieglitz J, Borgerhoff-Mulder M. 2020. <a
+href="https://royalsocietypublishing.org/doi/10.1098/rspb.2020.1245">Navigating
+cross-cultural research: methodological and ethical considerations</a>.
+<em>Proceedings of the Royal Society B</em> 287:20201245. <a
+href="pubs/Broesch%20et%20al%202020.pdf">pdf</a> | <a
+href="https://www.eurekalert.org/pub_releases/2020-09/uonl-eci092220.php">AAAS
+Press Release</a></p></li>
+<li><p>Scelza BA, Atkinson E, <strong>Prall SP</strong>, McElreath R,
+Sheehama J, Henn BM. 2020. <a
+href="https://doi.org/10.1017/ehs.2020.23">The ethics and logistics of
+field-based paternity studies</a>. <em>Evolutionary Human Sciences</em>
+2:E22 1-19. <a
+href="pubs/Scelza%20et%20al%202020%20ehs.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2020. <a
+href="https://royalsocietypublishing.org/doi/10.1098/rspb.2019.2890">Why
+men invest in non-biological offspring: paternal care and paternity
+confidence among Himba pastoralists</a>. <em>Proceedings of the Royal
+Society B</em> 287:20192890. <a
+href="pubs/Prall%20and%20Scelza%202020.pdf">pdf</a> | <a
+href="https://osf.io/bjkn8">data and code</a> | <a
+href="pubs/Prall%20and%20Scelza%202020%20SI.pdf">SI</a> | <a
+href="https://theconversation.com/the-deep-evolutionary-links-between-monogamy-and-fatherhood-are-more-complicated-than-we-thought-132660">Conversation
+Piece</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Swinford N, Gopalan S,
+Atkinson E, McElreath R, Sheehama J, Henn BM. 2020. <a
+href="https://advances.sciencemag.org/content/6/8/eaay6195">High rate of
+extra-pair paternity in a human population demonstrates diversity in
+human reproductive strategies</a>. <em>Science Advances</em> 6(8):
+eaa6195. <a href="pubs/Scelza%20et%20al%202020%20sci%20adv.pdf">pdf</a>
+| <a href="https://github.com/rmcelreath/Himba_EPP">code</a> | <a
+href="pubs/Scelza%20et%20al%202020%20sci%20adv%20SI.pdf">SI</a> | <a
+href="https://newsroom.ucla.edu/releases/African-society-human-paternity-infidelity">UCLA
+Press Release</a> | <a
+href="https://theconversation.com/the-deep-evolutionary-links-between-monogamy-and-fatherhood-are-more-complicated-than-we-thought-132660">Conversation
+Piece</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Starkweather K. 2020. <a
+href="https://www.sciencedirect.com/science/article/abs/pii/S1090513819301928">Paternity
+and social obligations explain men’s allocations to romantic partners in
+an experimental giving game</a>. <em>Evolution and Human Behavior</em>
+41: 96-102. <a href="pubs/Scelza%20et%20al%202020%20ehb.pdf">pdf</a> |
+<a href="https://osf.io/8bp5z/">data and code</a> | <a
+href="pubs/Scelza%20et%20al%202020%20ehb%20SI.pdf">SI</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Blumenfeld T, Crittenden
+AN, Gurven M, Kline M, Koster J, Kuschnik G, Mattison SM, Pillsworth E,
+Shenk MK, Starkweather K, Stieglitz J, Sum CY, Yamaguchi K, McElreath R.
+2020. <a
+href="https://www.nature.com/articles/s41562-019-0654-y">Patterns of
+paternal investment predict cross-cultural variation in jealous
+response</a>. <em>Nature Human Behaviour</em> 4: 20-26. <a
+href="pubs/Scelza%20et%20al%202019%20Jealousy.pdf">pdf</a> | <a
+href="https://osf.io/x593j/">data and code</a> | <a
+href="pubs/Scelza%20et%20al%202019%20Jealousy%20SI.pdf">SI</a> | <a
+href="http://newsroom.ucla.edu/releases/new-study-led-by-ucla-anthropologist-suggests-that-in-societies-where-dads-are-more-involved-with-their-kids-responses-to-infidelity-are-more-severe">UCLA
+Press Release</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>, Levine N. 2019. <a
+href="https://royalsocietypublishing.org/doi/full/10.1098/rstb.2018.0072">The
+disequilibrium of double descent: changing inheritance norms among Himba
+pastoralists</a>. <em>Philosophical Transactions of the Royal Society
+B</em> 374:20180072. <a
+href="pubs/Scelza%20et%20al%202019%20matriliny.pdf">pdf</a> | <a
+href="https://osf.io/z4eb2/">data and code</a> | <a
+href="pubs/Scelza%20et%20al%202019%20matriliny%20SI.pdf">SI</a></p></li>
+<li><p><strong>Prall SP</strong>, Yetish G, Scelza BA, Siegel JM. 2018.
+<a
+href="https://www.sleephealthjournal.org/article/S2352-7218(18)30179-7/abstract">The
+influence of age and sex specific labor demands on sleep in Namibian
+agro-pastoralists</a>. <em>Sleep Health</em> 4(6): 500-508. <a
+href="pubs/Prall%20et%20al%20sleep%20health.pdf">pdf</a></p></li>
+<li><p>Scelza BA, <strong>Prall SP</strong>. 2018. <a
+href="https://www.sciencedirect.com/science/article/pii/S1090513817301186">Partner
+preferences in the context of concurrency: what Himba want in formal and
+informal partners</a>. <em>Evolution and Human Behavior</em> 39:212-219.
+<a href="pubs/Scelza%20and%20Prall%202018.pdf">pdf</a> | <a
+href="https://data.mendeley.com/datasets/sstyj8n5ks/1">data and code</a>
+| <a href="pubs/Scelza%20and%20Prall%202018%20SI.pdf">SI</a></p></li>
+<li><p>Longman D, <strong>Prall SP</strong>, Shattuck EC, Stephen ID,
+Stock JT, Wells JCK, Muehlenbein MP. 2018. <a
+href="https://onlinelibrary.wiley.com/doi/full/10.1002/ajhb.23052">Short-term
+resource allocation during extensive athletic competition</a>.
+<em>American Journal of Human Biology</em> 30: e23052. <a
+href="pubs/Longman%20et%20al%202017.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. 2018. <a
+href="https://www.sciencedirect.com/science/article/pii/S0083672918300347">DHEA
+modulates immune function: a review of the evidence</a>. In: G Litwack
+(ed), <em>Dehydroepiandrosterone</em>. Elsevier Press. <a
+href="pubs/Prall%20and%20Muehlenbein%20ch%202018.pdf">pdf</a></p></li>
+<li><p>Tieder JS, <strong>Prall SP</strong>, Beck J, Alberda E, Jensen
+D, Nair D, Carline JD. 2017. <a
+href="https://hosppeds.aappublications.org/content/7/11/642.figures-only">A
+survey of perceived effectiveness of Part 4 Maintenance of
+Certification</a>. <em>Hospital Pediatrics</em>, 7(11):
+642-648.</p></li>
+<li><p><strong>Prall SP</strong>, Scelza BA. 2017. <a
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ajhb.23058">Child
+fosterage and sex-biased nutritional outcomes among Namibian
+Pastoralists</a>. <em>American Journal of Human Biology</em> 29(6):
+e23058. <a href="pubs/Prall%20and%20Scelza%202017.pdf">pdf</a> | <a
+href="pubs/Prall%20and%20Scelza%202017%20SI.pdf">SI</a></p></li>
+<li><p>Hodges-Simeon CR, <strong>Prall SP</strong>, Blackwell A, Gurven
+M, Gaulin SJC. 2017. <a
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ajhb.23025">Adrenal
+maturation, nutritional status and mucosal immunity in Bolivian
+youth</a>. <em>American Journal of Human Biology</em> 29(5): e23025. <a
+href="pubs/Hodges-Simeon%20et%20al%202017.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Larson EE, Muehlenbein MP. 2017. <a
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/smi.2752">The role
+of dehydroepiandrosterone on functional innate immune responses to acute
+stress</a>. <em>Stress and Health</em> 33:656-664. <a
+href="pubs/Prall%20et%20al%20stress%20and%20health.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. 2017. Hormonal
+correlates of dominance. In: A Fuentes (ed), <em>International
+Encyclopedia of Primatology</em>, Wiley-Blackwell. <a
+href="pubs/Prall%20Muehlenbein%20Encyclopedia%20entry.pdf">pdf</a></p></li>
+<li><p>Muehlenbein MP, <strong>Prall SP</strong>, Peck HN. 2017.
+Immunity, hormones and life history trade-offs. In: Jasienska G, Sherry
+DS, Holmes DJ (eds). <em>The Arc of Life: Evolution and health over the
+life course</em>. Springer Press, p. 99-120. <a
+href="pubs/Muehlenbein%20et%20al%202017.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. <a
+href="https://onlinelibrary.wiley.com/doi/10.1002/ajhb.22724">Dehydroepiandrosterone
+and multiple measures of functional immunity in young adults</a>. 2015.
+<em>American Journal of Human Biology</em> 27(6):877-880. <a
+href="pubs/Prall%20and%20Muehlenbein%202015.pdf">pdf</a></p></li>
+<li><p>Georgiev AV, Muehlenbein M, <strong>Prall SP</strong>,
+Emery-Thompson M, Maestripieri D. 2015. <a
+href="https://academic.oup.com/beheco/article/26/3/763/234197">Male
+quality, dominance rank and mating success in free-ranging rhesus
+macaques</a>. <em>Behavioral Ecology</em> 26(3):763-772. <a
+href="pubs/Georgiev%20et%20al.%202015.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Ambu L, Nathan S, Alsisto S, Ramirez
+D, Muehlenbein MP. 2015. <a
+href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ajp.22387">Androgens
+and innate immunity in rehabilitated semi-captive Orangutans (Pongo
+pygmaeus morio)</a>. <em>American Journal of Primatology</em>
+77(6):642-650. <a
+href="pubs/Prall%20et%20al.%202015%20AJP.pdf">pdf</a></p></li>
+<li><p>Muehlenbein MP, Pacheco MA, Taylor JE, <strong>Prall SP</strong>,
+Ambu L, Nathan S, Alsisto S, Ramirez D, Escalante AA. 2015. <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4298170/">Accelerated
+diversification of non-human primate malarias in Southeast Asia:
+adaptive radiation or geographic speciation?</a> <em>Molecular Biology
+and Evolution</em> 32(2):422-439. <a
+href="pubs/Muehlenbein%20et%20al.%202015.pdf">pdf</a></p></li>
+<li><p><strong>Prall SP</strong>, Muehlenbein MP. 2014. <a
+href="https://link.springer.com/article/10.1007/s10764-014-9752-x">Testosterone
+and immune function in primates: A brief summary with methodological
+considerations</a>. <em>International Journal of Primatology</em>
+35(3-4): 805-824. <a
+href="pubs/Prall%20and%20Muehlenbein%202014%20IJP.pdf">pdf</a></p></li>
+<li><p>Muehlenbein MP, Ancrenaz M, Sakong R, Ambu L, <strong>Prall
+SP</strong>, Fuller G, Raghanti MA. 2012. <a
+href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0033357">Ape
+conservation physiology: Fecal glucocorticoid responses in wild Pongo
+pygmaeus morio following human visitation</a>. <em>PLoS ONE</em> 7(3):
+e33357. <a
+href="pubs/Muehlenbein%20et%20al.%202012.pdf">pdf</a></p></li>
+<li><p>Streeter M, <strong>Prall SP</strong>, Hill C. 2008.
+Paleohistological Study of Pleistocene Mammoth (<em>Mammuthus</em>)
+Bone. <em>Current Research in the Pleistocene</em> 25:189-191.</p></li>
+</ul>
+</div>
+
+&nbsp;
+<hr />
+<p style="text-align: center;"><a href="https://github.com/sprall/">Sean Prall</a></p>
+<p style="text-align: center;"><span style="color: #808080;"><em>sprall@ucla.edu</em></span></p>
+
+
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<p style="text-align: center;">
+<!--    <a href="https://twitter.com/ssprall" class="fa fa-twitter"></a>  -->
+<!--    <a href="https://www.linkedin.com/in/yan-holtz-2477534a/" class="fa fa-linkedin"></a>  -->
+    <a href="https://github.com/sprall/" class="fa fa-github"></a>
+</p>
+
+&nbsp;
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
